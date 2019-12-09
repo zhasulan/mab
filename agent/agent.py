@@ -7,13 +7,15 @@ class Agent(object):
         self.actions = actions
         self.Q = np.zeros(actions)
         self.action_count = np.zeros(actions)
-        # self.action_rewards = np.zeros(actions)
         pass
 
-    def learn(self, action, reward):
+    def update_value(self, action, reward):
+        """
+
+        :param action: Count of actions
+        :param reward: Update Q value from reward
+        """
         self.action_count[action] = self.action_count[action] + 1
-        # self.action_rewards[action] = self.action_rewards[action] + reward
-        # self.Q[action] = self.action_rewards[action] / self.action_count[action]
         self.Q[action] += (1. / self.action_count[action]) * (reward - self.Q[action])
         pass
 

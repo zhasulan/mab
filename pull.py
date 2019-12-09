@@ -9,7 +9,7 @@ def main(actions, experiments, pulls):
     train.run("Epsilon greedy with epsilon=0.1", "epsilon_greedy", epsilon=0.1)
     train.run("Epsilon greedy with epsilon=0.01", "epsilon_greedy", epsilon=0.01)
 
-    train.print()
+    train.show()
 
 
 if __name__ == "__main__":

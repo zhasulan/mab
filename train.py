@@ -8,6 +8,12 @@ from bandit import Bandit
 class Train(object):
 
     def __init__(self, experiments, pulls, actions):
+        """
+
+        :param experiments: Count of experiments
+        :param pulls: Count of pulls
+        :param actions: Count of actions
+        """
         self.actions = actions
         self.pulls = pulls
         self.experiments = experiments
@@ -15,12 +21,18 @@ class Train(object):
         self.values = {}
         pass
 
-    def run(self, name, agent_type, **parameters):
+    def run(self, name, agent_name, **agent_parameters):
+        """
+
+        :param name: Name of experiments
+        :param agent_name: Name of Agent
+        :param agent_parameters: Parameters of Agent
+        """
         rewards = np.zeros(self.pulls)
         optimal_actions = np.zeros(self.pulls)
 
         for _ in tqdm(range(self.experiments)):
-            bandit = Bandit(self.pulls, self.actions, agent_type, **parameters)
+            bandit = Bandit(self.pulls, self.actions, agent_name, **agent_parameters)
             reward, optimal_action = bandit.experiment()
             rewards += reward
             optimal_actions += optimal_action
@@ -37,6 +49,10 @@ class Train(object):
         pass
 
     def print(self):
+
+        pass
+
+    def show(self):
 
         plt.subplot(2, 1, 1)
         plt.plot([1.55 for _ in range(self.pulls)], linestyle="--", lw=1)

@@ -13,6 +13,12 @@ class Environment(object):
         pass
 
     def get_reward(self, pull, action):
+        """
+
+        :param pull: Number of pull
+        :param action: Number of action
+        :return:
+        """
         optimal = 0
         if self.q_optimal == action:
             optimal = 1
