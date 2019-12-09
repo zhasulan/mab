@@ -55,7 +55,7 @@ class Train(object):
         plt.ylim(0, 2.0)
 
         plt.subplot(2, 1, 2)
-        plt.plot([100 for _ in range(self.experiments)], linestyle="--", lw=1)
+        plt.plot([100 for _ in range(self.pulls)], linestyle="--", lw=1)
 
         legend = ['Best Possible']
         for key, value in self.values.items():
