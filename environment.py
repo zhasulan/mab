@@ -23,3 +23,17 @@ class Environment(object):
         if self.q_optimal == action:
             optimal = 1
         return self.q_star[pull, action], optimal
+
+
+if __name__ == "__main__":
+    # np.random.seed(1)
+    z = np.zeros(1000)
+
+    for i in range(1000):
+        env = Environment(1, 10)
+        # print(env.arms)
+        # print(env.q_optimal)
+        # z[i] = np.mean(np.random.normal(env.arms[env.q_optimal], 1, 3000))
+        z[i] = env.arms[env.q_optimal]
+        z[i] = np.amax(env.arms)
+    print(np.mean(z))
